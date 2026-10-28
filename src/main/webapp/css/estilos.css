@@ -310,3 +310,138 @@ td strong { font-weight: 700; font-size: 0.97rem; }
 @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; }
 }
+
+
+/* ===== Íconos ===== */
+.ico {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.btn { gap: 7px; white-space: nowrap; }
+.btn-sm .ico { width: 14px; height: 14px; }
+
+/* ===== Encabezado ===== */
+.barra .fila-acciones { gap: 10px; }
+
+/* ===== Panel de resumen ===== */
+.resumen-panel { padding: 22px; }
+
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.dato {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 14px;
+}
+
+.dato-ico {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .75);
+}
+.dato-ico .ico { width: 20px; height: 20px; }
+
+.dato .num {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+.dato .txt { display: block; font-size: 0.85rem; font-weight: 600; }
+
+.dato.pendiente     { background: #fff3da; color: #8a5a00; }
+.dato.progreso-dato { background: #e3ecff; color: #234bb5; }
+.dato.terminada     { background: #e6f5ea; color: #1f6b35; }
+.dato.vencida-dato  { background: #fdecec; color: #a12626; }
+
+/* Avance dentro del mismo panel */
+.avance {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--linea);
+}
+.avance-texto {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+}
+.barra-avance {
+    height: 10px;
+    overflow: hidden;
+    background: #e9edf5;
+    border-radius: 999px;
+}
+.barra-avance-relleno {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primario), #5b8cff);
+    border-radius: 999px;
+    transition: width .4s ease;
+}
+
+/* ===== Filtros ordenados ===== */
+.filtros {
+    grid-template-columns: repeat(4, 1fr);
+    align-items: end;
+}
+.filtros > div:first-child { grid-column: span 2; }
+.filtros > div:nth-child(5) { align-self: center; padding-top: 22px; }
+.filtros > div:last-child {
+    grid-column: span 2;
+    justify-content: flex-end;
+}
+.filtros > div:nth-child(5) label { margin: 0; }
+
+/* ===== Estado vacío ===== */
+.vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px 16px;
+    text-align: center;
+}
+.vacio h2 { margin: 14px 0 4px; font-size: 1.15rem; font-weight: 700; }
+.vacio p { margin: 0 0 18px; }
+.vacio-ico {
+    width: 52px;
+    height: 52px;
+    padding: 12px;
+    fill: none;
+    stroke: var(--primario);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    background: var(--primario-tenue);
+    border-radius: 16px;
+}
+
+/* ===== Adaptación a pantallas más chicas ===== */
+@media (max-width: 860px) {
+    .resumen { grid-template-columns: repeat(2, 1fr); }
+    .filtros { grid-template-columns: repeat(2, 1fr); }
+    .filtros > div:first-child { grid-column: 1 / -1; }
+    .filtros > div:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) {
+    .resumen { grid-template-columns: 1fr; }
+    .filtros { grid-template-columns: 1fr; }
+    .filtros > div:nth-child(5) { padding-top: 0; }
+}
